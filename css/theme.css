@@ -25,7 +25,11 @@ body {
   right: 0 !important;
   z-index: 9999 !important;
   width: 100% !important;
-  background: rgba(255, 255, 255, 0.95) !important;  /* 배경 보강 */
+  max-width: 100% !important;  /* 추가: 스크롤 방지 */
+  overflow-x: hidden !important;  /* 추가: 수평 스크롤 방지 */
+  box-sizing: border-box !important;  /* 패딩 포함 폭 계산 */
+  padding: 0 10px !important;  /* 좌우 여백 추가 */
+  background: rgba(255, 255, 255, 0.95) !important;
 }
 
 .navbar .navbar-inner {
