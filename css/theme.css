@@ -154,29 +154,37 @@ header,
    FOOTER
 ========================= */
 /* ===== footer boxed layout ===== */
+/* ===== footer full width ===== */
 footer,
 .footer {
   width: 100% !important;
-  max-width: 960px !important;
-  margin: 0 auto !important;
+  max-width: 100% !important;
+  margin: 0 !important;
   padding: 20px 0 !important;
   left: auto !important;
   right: auto !important;
   transform: none !important;
   box-sizing: border-box !important;
   overflow: hidden !important;
+  background: #000 !important;
 }
 
+/* footer 안쪽 내용만 가운데 정렬 */
 footer .container,
-.footer .container,
+.footer .container {
+  max-width: 1100px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  box-sizing: border-box !important;
+}
+
+/* bootstrap row/span 밀림 보정 */
 footer .row,
 .footer .row {
-  width: 100% !important;
-  max-width: 100% !important;
   margin: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  box-sizing: border-box !important;
+  width: 100% !important;
 }
 
 footer [class*="span"],
@@ -191,6 +199,7 @@ footer img,
   height: auto !important;
   display: block !important;
 }
+
 
 
 /* Sidenav for Docs
