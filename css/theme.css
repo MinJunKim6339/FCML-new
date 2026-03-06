@@ -150,57 +150,6 @@ header,
   }
 }
 
-/* =========================
-   FOOTER
-========================= */
-/* ===== footer boxed layout ===== */
-/* ===== footer full width ===== */
-footer,
-.footer {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 !important;
-  padding: 20px 0 !important;
-  left: auto !important;
-  right: auto !important;
-  transform: none !important;
-  box-sizing: border-box !important;
-  overflow: hidden !important;
-  background: #000 !important;
-}
-
-/* footer 안쪽 내용만 가운데 정렬 */
-footer .container,
-.footer .container {
-  max-width: 1100px !important;
-  width: 100% !important;
-  margin: 0 auto !important;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-  box-sizing: border-box !important;
-}
-
-/* bootstrap row/span 밀림 보정 */
-footer .row,
-.footer .row {
-  margin: 0 !important;
-  width: 100% !important;
-}
-
-footer [class*="span"],
-.footer [class*="span"] {
-  margin-left: 0 !important;
-  box-sizing: border-box !important;
-}
-
-footer img,
-.footer img {
-  max-width: 100% !important;
-  height: auto !important;
-  display: block !important;
-}
-
-
 
 /* Sidenav for Docs
          -------------------------------------------------- */
@@ -746,5 +695,79 @@ ul.sponsors {
   #footer img {
     margin: 10px auto !important;
     max-width: 140px !important;
+  }
+}
+
+/* ===== FOOTER final ===== */
+#footer {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 50px 0 0 0 !important;
+  padding: 30px 0 25px 0 !important;
+  background-color: #000 !important;
+  clear: both !important;
+  float: none !important;
+  box-sizing: border-box !important;
+}
+
+#footer .container-fluid {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  box-sizing: border-box !important;
+}
+
+#footer .row-fluid {
+  width: 100% !important;
+  margin: 0 !important;
+  display: table !important;
+  table-layout: fixed !important;
+}
+
+#footer .row-fluid [class*="span"] {
+  display: table-cell !important;
+  float: none !important;
+  margin-left: 0 !important;
+  vertical-align: top !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+
+#footer .span5 {
+  width: 41.66666667% !important;
+}
+
+#footer .span2 {
+  width: 16.66666667% !important;
+}
+
+#footer img {
+  display: block !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 20px auto 0 auto !important;
+}
+
+@media (max-width: 768px) {
+  #footer .container-fluid {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  #footer .row-fluid {
+    display: block !important;
+  }
+
+  #footer .row-fluid [class*="span"] {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 0 20px 0 !important;
+  }
+
+  #footer img {
+    max-width: 140px !important;
+    margin: 10px auto !important;
   }
 }
