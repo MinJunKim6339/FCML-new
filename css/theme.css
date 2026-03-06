@@ -24,86 +24,47 @@ body {
   left: 0 !important;
   right: 0 !important;
   z-index: 9999 !important;
-  width: 100% !important;
-  max-width: 100% !important;  /* 추가: 스크롤 방지 */
-  overflow-x: hidden !important;  /* 추가: 수평 스크롤 방지 */
-  box-sizing: border-box !important;  /* 패딩 포함 폭 계산 */
-  padding: 0 10px !important;  /* 좌우 여백 추가 */
+  width: 100vw !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+  padding: 0 10px !important;
   background: rgba(255, 255, 255, 0.95) !important;
 }
 
-.navbar .navbar-inner {
-  padding: 0;
-  margin: 0 !important;  /* 추가 */
+.navbar .navbar-inner, .navbar .nav {
   width: 100% !important;
   max-width: 100% !important;
-  overflow: hidden !important;  /* 내부 요소 잘림 방지 */
+  overflow: hidden !important;
 }
 
-
 .navbar .nav {
-  margin: 0;
-  display: flex !important;  /* table → flex로 변경 (모바일 친화적) */
-  width: 100% !important;
+  display: flex !important;
   flex-wrap: nowrap !important;
-  justify-content: space-around !important;  /* 메뉴 균등 배치 */
+  justify-content: space-around !important;
 }
 
 .navbar .nav li {
-  flex: 1 !important;  /* table-cell → flex:1로 균등 분할 */
-  display: flex !important;
-  width: auto !important;
-  float: none;
-  min-width: 80px;  /* 최소 폭 보장 */
+  flex: 1 !important;
+  min-width: 80px;
 }
 
 .navbar .nav li a {
-  font-weight: bold;
-  text-align: center;
-  border-left: 1px solid rgba(255, 255, 255, .75);
-  border-right: 1px solid rgba(0, 0, 0, .1);
-  padding: 12px 8px !important;  /* 패딩 축소 */
-  flex: 1;
-  white-space: nowrap !important;  /* 텍스트 줄바꿈 방지 */
+  padding: 12px 8px !important;
+  white-space: nowrap !important;
   overflow: hidden !important;
-  text-overflow: ellipsis !important;  /* 길면 ... 처리 */
+  text-overflow: ellipsis !important;
 }
 
-.navbar .nav li:first-child a {
-  border-left: 0;
-  border-radius: 3px 0 0 3px;
+/* 모바일만 padding-top */
+@media (max-width: 1024px) {
+  body { padding-top: 70px !important; }
 }
 
-.navbar .nav li:last-child a {
-  border-right: 0;
-  border-radius: 0 3px 3px 0;
-}
-
-/* PC 브랜드 로고 */
-body > .navbar .brand {
-  padding-right: 0;
-  padding-left: 0;
-  margin-left: 20px;
-  float: right;
-  font-weight: bold;
-  color: #000;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
-  transition: all .2s linear;
-}
-
-body > .navbar .brand:hover {
-  text-decoration: none;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .4);
-}
-
-/* 본문 콘텐츠 여백 (navbar 높이만큼) */
-body {
-  padding-top: 70px !important;  /* navbar 높이 측정 후 조정 (대략 60-80px) */
-}
-
-/* 기존 폰트사이즈 유지 */
-body > .navbar {
-  font-size: 13px;
+/* PC는 padding-top 0 */
+@media (min-width: 1025px) {
+  body { padding-top: 0 !important; }
+  .navbar { padding: 0 20px !important; }  /* PC 좌우 여백 넓게 */
 }
 
 /* Change the docs' brand */
