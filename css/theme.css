@@ -18,43 +18,77 @@ body {
 
 /* Customize the navbar links to be fill the entire space of the .navbar */
 
+.navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  width: 100% !important;
+  background: rgba(255, 255, 255, 0.95) !important;  /* 배경 보강 */
+}
+
 .navbar .navbar-inner {
-	padding: 0
+  padding: 0;
+  margin: 0 !important;  /* 추가 */
 }
 
 .navbar .nav {
-	margin: 0;
-	display: table;
-	width: 100%;
+  margin: 0;
+  display: table;
+  width: 100%;
 }
 
 .navbar .nav li {
-	display: table-cell;
-	width: 1%;
-	float: none;
+  display: table-cell;
+  width: 1%;
+  float: none;
 }
 
 .navbar .nav li a {
-	font-weight: bold;
-	text-align: center;
-	border-left: 1px solid rgba(255, 255, 255, .75);
-	border-right: 1px solid rgba(0, 0, 0, .1);
+  font-weight: bold;
+  text-align: center;
+  border-left: 1px solid rgba(255, 255, 255, .75);
+  border-right: 1px solid rgba(0, 0, 0, .1);
+  padding: 15px 10px;  /* 높이 조정 */
 }
 
 .navbar .nav li:first-child a {
-	border-left: 0;
-	border-radius: 3px 0 0 3px;
+  border-left: 0;
+  border-radius: 3px 0 0 3px;
 }
 
 .navbar .nav li:last-child a {
-	border-right: 0;
-	border-radius: 0 3px 3px 0;
+  border-right: 0;
+  border-radius: 0 3px 3px 0;
 }
 
-body>.navbar {
-	font-size: 13px
+/* PC 브랜드 로고 */
+body > .navbar .brand {
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 20px;
+  float: right;
+  font-weight: bold;
+  color: #000;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
+  transition: all .2s linear;
 }
 
+body > .navbar .brand:hover {
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .4);
+}
+
+/* 본문 콘텐츠 여백 (navbar 높이만큼) */
+body {
+  padding-top: 70px !important;  /* navbar 높이 측정 후 조정 (대략 60-80px) */
+}
+
+/* 기존 폰트사이즈 유지 */
+body > .navbar {
+  font-size: 13px;
+}
 
 /* Change the docs' brand */
 
