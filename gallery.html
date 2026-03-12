@@ -1,238 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <link rel="icon" type="image/x-icon" href="pic/favicon-96x96.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="pic/web-app-manifest-192x192.png">
-      <link rel="apple-touch-icon" sizes="180x180" href="pic/web-app-manifest-512x512.png">
-      <title>전주대 FCML</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="FCML | Gallery">
-      <meta name="author" content="">
-      <!-- Le styles -->
-      <link href="css/bootstrap.min.css" rel="stylesheet">
-      <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-      <link href="css/theme.css" rel="stylesheet">
-   </head>
-   <body>
-      <div class="container">
-         <header class="jumbotron subhead" id="overview">
-            <p class="lead">FCML</p>
-            <h1>Functional Carbon Materials Laboratory</h1>
-         </header>
-         <div class="masthead">
-            <div class="navbar">
-               <div class="navbar-inner">
-                  <div class="container">
-                     <ul class="nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="people.html">People</a></li>
-                        <li><a href="research.html">Research</a></li>
-                        <li><a href="publications.html">Publications</a></li>
-                        <li class="active"><a href="gallery.html">Gallery</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                     </ul>
-                  </div>
+<head>
+   <meta charset="utf-8">
+   <link rel="icon" type="image/x-icon" href="pic/favicon-96x96.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="pic/web-app-manifest-192x192.png">
+   <link rel="apple-touch-icon" sizes="180x180" href="pic/web-app-manifest-512x512.png">
+   <title>전주대 FCML</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="FCML | Gallery">
+   <meta name="author" content="">
+
+   <link href="css/bootstrap.min.css" rel="stylesheet">
+   <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+   <link href="css/theme.css" rel="stylesheet">
+
+   <style>
+      /* Gallery sidebar */
+      .bs-docs-sidebar .nav > li > a {
+         word-break: keep-all;
+      }
+
+      /* Section spacing */
+      #imagegallery1,
+      #imagegallery2 {
+         scroll-margin-top: 80px;
+      }
+
+      /* Thumbnail list cleanup */
+      #imagegallery1 ul.thumbnails,
+      #imagegallery2 ul.thumbnails {
+         margin-left: 0;
+      }
+
+      #imagegallery1 ul.thumbnails:before,
+      #imagegallery1 ul.thumbnails:after,
+      #imagegallery2 ul.thumbnails:before,
+      #imagegallery2 ul.thumbnails:after {
+         display: table;
+         content: "";
+         line-height: 0;
+      }
+
+      #imagegallery1 ul.thumbnails:after,
+      #imagegallery2 ul.thumbnails:after {
+         clear: both;
+      }
+
+      #imagegallery1 ul.thumbnails li,
+      #imagegallery2 ul.thumbnails li {
+         list-style: none;
+         margin-bottom: 24px;
+         text-align: center;
+      }
+
+      /* Thumbnail box */
+      #imagegallery1 .thumbnail,
+      #imagegallery2 .thumbnail {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 100%;
+         height: 220px;
+         overflow: hidden;
+         padding: 0;
+         border: 1px solid #ddd;
+         background: #f8f8f8;
+         box-sizing: border-box;
+      }
+
+      /* Image fit */
+      #imagegallery1 .thumbnail img,
+      #imagegallery2 .thumbnail img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         display: block;
+      }
+
+      /* Caption */
+      #imagegallery1 .caption,
+      #imagegallery2 .caption {
+         margin-top: 10px;
+         margin-bottom: 0;
+         text-align: center;
+         line-height: 1.5;
+      }
+
+      /* Mobile */
+      @media (max-width: 767px) {
+         #imagegallery1 .thumbnail,
+         #imagegallery2 .thumbnail {
+            height: 200px;
+         }
+
+         .bs-docs-sidebar {
+            margin-bottom: 20px;
+         }
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <header class="jumbotron subhead" id="overview">
+         <p class="lead">FCML</p>
+         <h1>Functional Carbon Materials Laboratory</h1>
+      </header>
+
+      <div class="masthead">
+         <div class="navbar">
+            <div class="navbar-inner">
+               <div class="container">
+                  <ul class="nav">
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="people.html">People</a></li>
+                     <li><a href="research.html">Research</a></li>
+                     <li><a href="publications.html">Publications</a></li>
+                     <li class="active"><a href="gallery.html">Gallery</a></li>
+                     <li><a href="news.html">News</a></li>
+                     <li><a href="contact.html">Contact</a></li>
+                  </ul>
                </div>
-            </div>
-         </div>
-         <hr>
-         <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
-            <div class="slides"></div>
-            <h3 class="title"> Gallery </h3>
-            <a class="prev">‹</a>
-            <a class="next">›</a>
-            <a class="close">×</a>
-            <a class="play-pause"></a>
-            <ol class="indicator"></ol>
-         </div>
-         <div class="row-fluid">
-            <div class="span3 bs-docs-sidebar" id="navparent">
-               <ul class="nav nav-list bs-docs-sidenav" data-spy="affix" data-offset-top="200" data-offset-bottom="260">
-                  <li><a href="#imagegallery1"> Image Gallery 1 </a></li>
-                  <li><a href="#imagegallery2"> Image Gallery 2 </a></li>
-               </ul>
-            </div>
-            <div class="span8 offset1">
-               <section id="imagegallery1">
-                  <div class="page-header">
-                     <h3>Image Gallery 1</h3>
-                  </div>
-                  <div class="row-fluid">
-                     <ul class="thumbnails da-thumbs">
-                        <li class="span4">
-                           <a title="Spring Academic Conference-1. "  href="pic/winter1.png" class="thumbnail" >
-                           <img alt="" src="pic/winter1.png">            
-                           </a>
-                           <p class="caption"> Spring Acdemic Conference. </p>
-                        </li>
-                        <li class="span4">
-                           <a title="Spring Academic Conference-2" href="pic/winter2.png" class="thumbnail" >
-                           <img alt="" src="pic/winter2.png">
-                           </a>
-                           <p class="caption"> Spring Acdemic Conference-2. </p>
-                        </li>
-                        <li class="span4">
-                           <a title="Spring Academic Conference-3. " href="pic/winter3.png" class="thumbnail" >
-                           <img alt="" src="pic/winter3.png">
-                           </a>
-                           <p class="caption"> Spring Academic Conference-3 </p>
-                        </li>
-                     </ul>
-                  </div>
-                  <div class="row-fluid">
-                     <ul class="thumbnails">
-                        <li class="span4">
-                           <a href="images/bristol-robotics-lab.jpg" class="thumbnail" title="Tempus imperdiet nulla malesuada pellentesque elit eget. Sed enim ut sem viverra aliquet eget sit amet tellus.">
-                           <img alt="" src="images/bristol-robotics-lab.jpg" style="width: 187px; height: 125px;">
-                           </a>
-                           <p class="caption"> Tempus imperdiet nulla malesuada pellentesque. </p>
-                        </li>
-                        <li class="span4">
-                           <a href="images/bristol-robotics-lab2.jpg" class="thumbnail" title="Purus faucibus ornare suspendisse sed nisi. Velit laoreet id donec ultrices tincidunt arcu non sodales neque. Tortor at risus viverra adipiscing at in">
-                           <img alt="" src="images/bristol-robotics-lab2.jpg" style="width: 187px; height: 125px;">
-                           </a>
-                           <p class="caption"> Purus faucibus ornare suspendisse sed nisi. </p>
-                        </li>
-                        <li class="span4">
-                           <a href="images/lab-photo.jpg" class="thumbnail" title="Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Ante in nibh mauris cursus mattis molestie.">
-                           <img alt="" src="images/lab-photo.jpg" style="width: 187px; height: 125px;">
-                           </a>
-                           <p class="caption"> Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium. </p>
-                        </li>
-                     </ul>
-                  </div>
-                  <div class="row-fluid">
-                     <ul class="thumbnails">
-                        <li class="span4">
-                           <a href="images/syringes.jpg" class="thumbnail" title="Tempus imperdiet nulla malesuada pellentesque elit eget. Sed enim ut sem viverra aliquet eget sit amet tellus.">
-                           <img alt="" src="images/syringes.jpg" style="width: 187px; height: 125px;">
-                           </a>
-                           <p class="caption"> Tempus imperdiet nulla malesuada </p>
-                        </li>
-                        <li class="span4">
-                           <a href="images/test-tubes.jpg" class="thumbnail" title="Purus faucibus ornare suspendisse sed nisi. Velit laoreet id donec ultrices tincidunt arcu non sodales neque.">
-                           <img alt="" src="images/test-tubes.jpg" style="width: 187px; height: 125px;">
-                           </a>
-                           <p class="caption"> Purus faucibus ornare suspendisse </p>
-                        </li>
-                        <li class="span4">
-                           <a href="images/microscope.jpg" class="thumbnail" title="Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Ante in nibh mauris cursus.">
-                           <img alt="" src="images/microscope.jpg" style="width: 187px; height: 125px;">
-                           </a>
-                           <p class="caption"> Tortor aliquam nulla facilisi cras </p>
-                        </li>
-                     </ul>
-                  </div>
-               </section>
-               <section id="imagegallery2">
-                  <div class="page-header">
-                     <h3>Image Gallery 2</h3>
-                  </div>
-                  <div class="row-fluid">
-                     <ul class="thumbnails da-thumbs">
-                        <li class="span4">
-                           <a title="Tortor vitae purus 2018"  href="images/you-x-ventures-studio.jpg" class="thumbnail" >
-                           <img alt="" src="images/you-x-ventures-studio.jpg" style="width: 187px; height: 125px;">            
-                           </a>
-                           <p class="caption"> Tortor vitae purus 2018 </p>
-                        </li>
-                        <li class="span4">
-                           <a title="Varius duis at consectetur lorem donec massa." href="images/arlington-research.jpg" class="thumbnail" >
-                           <img alt="" src="images/arlington-research.jpg" style="width: 187px; height: 125px;">
-                           </a>
-                           <p class="caption"> Varius duis at consectetur lorem donec massa </p>
-                        </li>
-                        <li class="span4">
-                           <a title="Tortor vitae purus 2018." href="images/lab-room.jpg" class="thumbnail" >
-                           <img alt="" src="images/lab-room.jpg" style="width: 187px; height: 125px;">
-                           </a>
-                           <p class="caption"> Tortor vitae purus 2018 </p>
-                        </li>
-                     </ul>
-                  </div>
-                  <div class="row-fluid">
-                     <ul class="thumbnails">
-                        <li class="span4">
-                           <a title="Tortor vitae purus 2018"  href="images/individual-lab.jpg" class="thumbnail" >
-                           <img alt="" src="images/individual-lab.jpg" style="width: 187px; height: 125px;">            
-                           </a>
-                           <p class="caption"> Tortor vitae purus 2018 </p>
-                        </li>
-                        <li class="span4">
-                           <a title="Varius duis at consectetur lorem donec massa." href="images/arlington-research-2.jpg" class="thumbnail" >
-                           <img alt="" src="images/arlington-research-2.jpg" style="width: 187px; height: 125px;">
-                           </a>
-                           <p class="caption"> Varius duis at consectetur lorem donec massa </p>
-                        </li>
-                        <li class="span4">
-                           <a title="Tortor vitae purus 2018." href="images/arlington-research-3.jpg" class="thumbnail" >
-                           <img alt="" src="images/arlington-research-3.jpg" style="width: 187px; height: 125px;">
-                           </a>
-                           <p class="caption"> Tortor vitae purus 2018 </p>
-                        </li>
-                     </ul>
-                  </div>
-               </section>
             </div>
          </div>
       </div>
-      <footer id="footer">
-         <div class="container-fluid">
-            <div class="row-fluid">
-               <div class="span5">
-                  <h3>Contact Information</h3>
-                  <p><b>Office Hours: </b>Monday-Friday (9.00am - 6.00pm)</p>
-                  <p><b>Tell: </b>063-220-2543</p>
-                  <p><b>Email:</b>youngchoi@jj.ac.kr</p>
+
+      <hr>
+
+      <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+         <div class="slides"></div>
+         <h3 class="title">Gallery</h3>
+         <a class="prev">‹</a>
+         <a class="next">›</a>
+         <a class="close">×</a>
+         <a class="play-pause"></a>
+         <ol class="indicator"></ol>
+      </div>
+
+      <div class="row-fluid">
+         <div class="span3 bs-docs-sidebar" id="navparent">
+            <ul class="nav nav-list bs-docs-sidenav" data-spy="affix" data-offset-top="200" data-offset-bottom="260">
+               <li><a href="#imagegallery1">Image Gallery 1</a></li>
+               <li><a href="#imagegallery2">Image Gallery 2</a></li>
+            </ul>
+         </div>
+
+         <div class="span8 offset1">
+            <section id="imagegallery1">
+               <div class="page-header">
+                  <h3>Image Gallery 1</h3>
                </div>
-               <div class="span2">
-                   <img src="images/로고.png" class="carousel-image" alt="">
+
+               <div class="row-fluid">
+                  <ul class="thumbnails">
+                     <li class="span4">
+                        <a title="Spring Academic Conference-1" href="pic/winter1.png" class="thumbnail">
+                           <img alt="Spring Academic Conference-1" src="pic/winter1.png">
+                        </a>
+                        <p class="caption">Spring Academic Conference-1</p>
+                     </li>
+
+                     <li class="span4">
+                        <a title="Spring Academic Conference-2" href="pic/winter2.png" class="thumbnail">
+                           <img alt="Spring Academic Conference-2" src="pic/winter2.png">
+                        </a>
+                        <p class="caption">Spring Academic Conference-2</p>
+                     </li>
+
+                     <li class="span4">
+                        <a title="Spring Academic Conference-3" href="pic/winter3.png" class="thumbnail">
+                           <img alt="Spring Academic Conference-3" src="pic/winter3.png">
+                        </a>
+                        <p class="caption">Spring Academic Conference-3</p>
+                     </li>
+                  </ul>
                </div>
-               <div class="span5">
-                  <h3>Address</h3>
-                  <p>전북특별자치도 전주시 완산구 천잠로 303<br>
-                     전주대학교<br>
-                     공학2관 Hatch 204A<br>
-                  </p>
-                  <a href="https://maps.app.goo.gl/Jos4jcsiJYb3p3TU6">Show Map</a>
+
+               <div class="row-fluid">
+                  <ul class="thumbnails">
+                     <li class="span4">
+                        <a href="images/bristol-robotics-lab.jpg" class="thumbnail" title="Tempus imperdiet nulla malesuada pellentesque elit eget.">
+                           <img alt="Lab image 1" src="images/bristol-robotics-lab.jpg">
+                        </a>
+                        <p class="caption">Tempus imperdiet nulla malesuada pellentesque.</p>
+                     </li>
+
+                     <li class="span4">
+                        <a href="images/bristol-robotics-lab2.jpg" class="thumbnail" title="Purus faucibus ornare suspendisse sed nisi.">
+                           <img alt="Lab image 2" src="images/bristol-robotics-lab2.jpg">
+                        </a>
+                        <p class="caption">Purus faucibus ornare suspendisse sed nisi.</p>
+                     </li>
+
+                     <li class="span4">
+                        <a href="images/lab-photo.jpg" class="thumbnail" title="Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium.">
+                           <img alt="Lab photo" src="images/lab-photo.jpg">
+                        </a>
+                        <p class="caption">Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium.</p>
+                     </li>
+                  </ul>
                </div>
+
+               <div class="row-fluid">
+                  <ul class="thumbnails">
+                     <li class="span4">
+                        <a href="images/syringes.jpg" class="thumbnail" title="Tempus imperdiet nulla malesuada pellentesque elit eget.">
+                           <img alt="Syringes" src="images/syringes.jpg">
+                        </a>
+                        <p class="caption">Tempus imperdiet nulla malesuada.</p>
+                     </li>
+
+                     <li class="span4">
+                        <a href="images/test-tubes.jpg" class="thumbnail" title="Purus faucibus ornare suspendisse sed nisi.">
+                           <img alt="Test tubes" src="images/test-tubes.jpg">
+                        </a>
+                        <p class="caption">Purus faucibus ornare suspendisse.</p>
+                     </li>
+
+                     <li class="span4">
+                        <a href="images/microscope.jpg" class="thumbnail" title="Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium.">
+                           <img alt="Microscope" src="images/microscope.jpg">
+                        </a>
+                        <p class="caption">Tortor aliquam nulla facilisi cras.</p>
+                     </li>
+                  </ul>
+               </div>
+            </section>
+
+            <section id="imagegallery2">
+               <div class="page-header">
+                  <h3>Image Gallery 2</h3>
+               </div>
+
+               <div class="row-fluid">
+                  <ul class="thumbnails">
+                     <li class="span4">
+                        <a title="Tortor vitae purus 2018" href="images/you-x-ventures-studio.jpg" class="thumbnail">
+                           <img alt="Gallery image 1" src="images/you-x-ventures-studio.jpg">
+                        </a>
+                        <p class="caption">Tortor vitae purus 2018</p>
+                     </li>
+
+                     <li class="span4">
+                        <a title="Varius duis at consectetur lorem donec massa." href="images/arlington-research.jpg" class="thumbnail">
+                           <img alt="Gallery image 2" src="images/arlington-research.jpg">
+                        </a>
+                        <p class="caption">Varius duis at consectetur lorem donec massa.</p>
+                     </li>
+
+                     <li class="span4">
+                        <a title="Tortor vitae purus 2018." href="images/lab-room.jpg" class="thumbnail">
+                           <img alt="Gallery image 3" src="images/lab-room.jpg">
+                        </a>
+                        <p class="caption">Tortor vitae purus 2018</p>
+                     </li>
+                  </ul>
+               </div>
+
+               <div class="row-fluid">
+                  <ul class="thumbnails">
+                     <li class="span4">
+                        <a title="Tortor vitae purus 2018" href="images/individual-lab.jpg" class="thumbnail">
+                           <img alt="Gallery image 4" src="images/individual-lab.jpg">
+                        </a>
+                        <p class="caption">Tortor vitae purus 2018</p>
+                     </li>
+
+                     <li class="span4">
+                        <a title="Varius duis at consectetur lorem donec massa." href="images/arlington-research-2.jpg" class="thumbnail">
+                           <img alt="Gallery image 5" src="images/arlington-research-2.jpg">
+                        </a>
+                        <p class="caption">Varius duis at consectetur lorem donec massa.</p>
+                     </li>
+
+                     <li class="span4">
+                        <a title="Tortor vitae purus 2018." href="images/arlington-research-3.jpg" class="thumbnail">
+                           <img alt="Gallery image 6" src="images/arlington-research-3.jpg">
+                        </a>
+                        <p class="caption">Tortor vitae purus 2018</p>
+                     </li>
+                  </ul>
+               </div>
+            </section>
+         </div>
+      </div>
+   </div>
+
+   <footer id="footer">
+      <div class="container-fluid">
+         <div class="row-fluid">
+            <div class="span5">
+               <h3>Contact Information</h3>
+               <p><b>Office Hours:</b> Monday-Friday (9.00am - 6.00pm)</p>
+               <p><b>Tel:</b> 063-220-2543</p>
+               <p><b>Email:</b> youngchoi@jj.ac.kr</p>
+            </div>
+
+            <div class="span2">
+               <img src="images/로고.png" class="carousel-image" alt="FCML logo">
+            </div>
+
+            <div class="span5">
+               <h3>Address</h3>
+               <p>
+                  전북특별자치도 전주시 완산구 천잠로 303<br>
+                  전주대학교<br>
+                  공학2관 Hatch 204A<br>
+               </p>
+               <a href="https://maps.app.goo.gl/Jos4jcsiJYb3p3TU6">Show Map</a>
             </div>
          </div>
-      </footer>
+      </div>
+   </footer>
 
-      <!-- Le javascript
-         ================================================== -->
-      <!-- Placed at the end of the document so the pages load faster -->
-      <!--<script src="js/jquery-1.9.1.min.js"></script>-->
-      <script src="js/jquery-1.9.1.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/blueimp-gallery.min.js"></script>
-      <script>
-         $(document).ready(function() {
-            $(document.body).scrollspy({
-             target: "#navparent"
-          });
+   <script src="js/jquery-1.9.1.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/blueimp-gallery.min.js"></script>
+
+   <script>
+      $(document).ready(function () {
+         $(document.body).scrollspy({
+            target: "#navparent"
          });
-         
-         document.getElementById('imagegallery1').onclick = function (event) {
-          event = event || window.event;
-          var target = event.target || event.srcElement,
-              link = target.src ? target.parentNode : target,
-              options = {index: link, event: event},
-              links = this.getElementsByTagName('a');
-          blueimp.Gallery(links, options);
-         };
-         
-         document.getElementById('imagegallery2').onclick = function (event) {
-          event = event || window.event;
-          var target = event.target || event.srcElement,
-              link = target.src ? target.parentNode : target,
-              options = {index: link, event: event},
-              links = this.getElementsByTagName('a');
-          blueimp.Gallery(links, options);
-         };        
-      </script>  
-   </body>
+      });
+
+      document.getElementById('imagegallery1').onclick = function (event) {
+         event = event || window.event;
+         var target = event.target || event.srcElement,
+             link = target.src ? target.parentNode : target,
+             options = { index: link, event: event },
+             links = this.getElementsByTagName('a');
+         blueimp.Gallery(links, options);
+      };
+
+      document.getElementById('imagegallery2').onclick = function (event) {
+         event = event || window.event;
+         var target = event.target || event.srcElement,
+             link = target.src ? target.parentNode : target,
+             options = { index: link, event: event },
+             links = this.getElementsByTagName('a');
+         blueimp.Gallery(links, options);
+      };
+   </script>
+</body>
 </html>
