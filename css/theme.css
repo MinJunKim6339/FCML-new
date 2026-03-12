@@ -625,3 +625,42 @@ ul.sponsors {
 	font-size: 11px;
 }
 
+/* Gallery layout */
+#imagegallery1 .thumbnails,
+#imagegallery2 .thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0;
+}
+
+#imagegallery1 .thumbnails li,
+#imagegallery2 .thumbnails li {
+  list-style: none;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#imagegallery1 .thumbnail,
+#imagegallery2 .thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+#imagegallery1 .thumbnail img,
+#imagegallery2 .thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#imagegallery1 .caption,
+#imagegallery2 .caption {
+  text-align: center;
+  margin-top: 8px;
+}
