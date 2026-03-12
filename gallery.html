@@ -8,23 +8,20 @@
    <title>전주대 FCML</title>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta name="description" content="FCML | Gallery">
+   <meta name="author" content="">
 
    <link href="css/bootstrap.min.css" rel="stylesheet">
    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
    <link href="css/theme.css" rel="stylesheet">
 
    <style>
-      .gallery-wrapper {
-         padding-top: 10px;
-      }
-
       .gallery-section {
          margin-bottom: 50px;
       }
 
       .gallery-grid {
          display: grid;
-         grid-template-columns: repeat(3, 1fr);
+         grid-template-columns: repeat(2, 1fr);
          gap: 24px;
          margin-top: 20px;
       }
@@ -35,7 +32,7 @@
 
       .gallery-thumb {
          width: 100%;
-         aspect-ratio: 3 / 2;
+         aspect-ratio: 4 / 3;
          overflow: hidden;
          border: 1px solid #ddd;
          background: #f5f5f5;
@@ -54,19 +51,18 @@
 
       .gallery-caption {
          margin-top: 10px;
-         font-size: 14px;
+         margin-bottom: 0;
+         text-align: center;
          line-height: 1.5;
-      }
-
-      @media (max-width: 991px) {
-         .gallery-grid {
-            grid-template-columns: repeat(2, 1fr);
-         }
       }
 
       @media (max-width: 767px) {
          .gallery-grid {
             grid-template-columns: 1fr;
+         }
+
+         .bs-docs-sidebar {
+            margin-bottom: 20px;
          }
       }
    </style>
@@ -109,9 +105,15 @@
          <ol class="indicator"></ol>
       </div>
 
-      <div class="row-fluid gallery-wrapper">
-         <div class="span12">
+      <div class="row-fluid">
+         <div class="span3 bs-docs-sidebar" id="navparent">
+            <ul class="nav nav-list bs-docs-sidenav" data-spy="affix" data-offset-top="200" data-offset-bottom="260">
+               <li><a href="#imagegallery1">Image Gallery 1</a></li>
+               <li><a href="#imagegallery2">Image Gallery 2</a></li>
+            </ul>
+         </div>
 
+         <div class="span8 offset1">
             <section id="imagegallery1" class="gallery-section">
                <div class="page-header">
                   <h3>Image Gallery 1</h3>
@@ -148,28 +150,48 @@
 
                <div class="gallery-grid">
                   <div class="gallery-item">
-                     <a title="Image 1" href="images/bristol-robotics-lab.jpg" class="gallery-thumb">
+                     <a href="images/bristol-robotics-lab.jpg" class="gallery-thumb" title="Image 1">
                         <img src="images/bristol-robotics-lab.jpg" alt="Image 1">
                      </a>
                      <p class="gallery-caption">Image 1</p>
                   </div>
 
                   <div class="gallery-item">
-                     <a title="Image 2" href="images/bristol-robotics-lab2.jpg" class="gallery-thumb">
+                     <a href="images/bristol-robotics-lab2.jpg" class="gallery-thumb" title="Image 2">
                         <img src="images/bristol-robotics-lab2.jpg" alt="Image 2">
                      </a>
                      <p class="gallery-caption">Image 2</p>
                   </div>
 
                   <div class="gallery-item">
-                     <a title="Image 3" href="images/lab-photo.jpg" class="gallery-thumb">
+                     <a href="images/lab-photo.jpg" class="gallery-thumb" title="Image 3">
                         <img src="images/lab-photo.jpg" alt="Image 3">
                      </a>
                      <p class="gallery-caption">Image 3</p>
                   </div>
+
+                  <div class="gallery-item">
+                     <a href="images/syringes.jpg" class="gallery-thumb" title="Image 4">
+                        <img src="images/syringes.jpg" alt="Image 4">
+                     </a>
+                     <p class="gallery-caption">Image 4</p>
+                  </div>
+
+                  <div class="gallery-item">
+                     <a href="images/test-tubes.jpg" class="gallery-thumb" title="Image 5">
+                        <img src="images/test-tubes.jpg" alt="Image 5">
+                     </a>
+                     <p class="gallery-caption">Image 5</p>
+                  </div>
+
+                  <div class="gallery-item">
+                     <a href="images/microscope.jpg" class="gallery-thumb" title="Image 6">
+                        <img src="images/microscope.jpg" alt="Image 6">
+                     </a>
+                     <p class="gallery-caption">Image 6</p>
+                  </div>
                </div>
             </section>
-
          </div>
       </div>
    </div>
@@ -201,28 +223,4 @@
       </div>
    </footer>
 
-   <script src="js/jquery-1.9.1.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-   <script src="js/blueimp-gallery.min.js"></script>
-
-   <script>
-      document.getElementById('imagegallery1').onclick = function (event) {
-         event = event || window.event;
-         var target = event.target || event.srcElement,
-             link = target.src ? target.parentNode : target,
-             options = { index: link, event: event },
-             links = this.getElementsByTagName('a');
-         blueimp.Gallery(links, options);
-      };
-
-      document.getElementById('imagegallery2').onclick = function (event) {
-         event = event || window.event;
-         var target = event.target || event.srcElement,
-             link = target.src ? target.parentNode : target,
-             options = { index: link, event: event },
-             links = this.getElementsByTagName('a');
-         blueimp.Gallery(links, options);
-      };
-   </script>
-</body>
-</html>
+   <script src
